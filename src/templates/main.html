@@ -1,0 +1,10 @@
+<div class="row">
+  <header><h2>Зараз у прокаті у Львові</h2></header>
+  <div class="col l3 m4 s12 movie" ng-repeat="movie in movies">
+    <img ng-src="{{movie.imgUrl}}" alt="{{movie.originName}}">
+    <div>
+      <a ng-href="#/" ng-bind="movie.name"></a>
+      <p ng-bind="movie.genre"></p>
+    </div>
+  </div>
+</div>

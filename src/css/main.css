@@ -1,0 +1,17 @@
+body {
+  font-size: 14px;
+}
+
+h2 {
+  margin-left: 5px;
+}
+
+.movie {
+  margin-bottom: 20px;
+}
+.movie img {
+  height: 236px;
+}
+.movie p {
+  margin: 0;
+}

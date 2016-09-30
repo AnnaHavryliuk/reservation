@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="src/css/main.css">
+  </head>
+  <body ng-app="mainApp">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="#/">Головна</a></li>
+          <li><a href="#/showtimes">Розклад</a></li>
+          <li><a href="#/cinemas">Кінотеатри</a></li>
+        </ul>
+        <ul id="mobile-nav" class="side-nav">
+          <li><a href="#/">Головна</a></li>
+          <li><a href="#/showtimes">Розклад</a></li>
+          <li><a href="#/cinemas">Кінотеатри</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section ng-view></section>
+
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="src/js/styles.js"></script>
+
+    <script src="src/js/main.js"></script>
+    <script src="src/js/factories/movies-factory.js"></script>
+    <script src="src/js/factories/cinemas-factory.js"></script>
+    <script src="src/js/controllers/main-cntrl.js"></script>
+    <script src="src/js/controllers/showtimes-cntrl.js"></script>
+  </body>
+</html>
