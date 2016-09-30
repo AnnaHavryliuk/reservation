@@ -1,0 +1,24 @@
+{
+  "name": "reservation",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Anna Havryliuk"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/AnnaHavryliuk/reservation",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.2.0",
+    "angular": "^1.5.8",
+    "angular-route": "1.5.8",
+    "materialize": "^0.97.7"
+  }
+}

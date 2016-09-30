@@ -1,0 +1,22 @@
+{
+  "name": "reservation",
+  "version": "0.1.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaHavryliuk/reservation.git"
+  },
+  "author": "Anna Havryliuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaHavryliuk/reservation/issues"
+  },
+  "homepage": "https://github.com/AnnaHavryliuk/reservation#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
