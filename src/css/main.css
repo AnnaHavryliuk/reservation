@@ -1,17 +1,54 @@
 body {
-  font-size: 14px;
+  font-size: 16px;
 }
 
-h2 {
+main {
   margin-left: 5px;
+}
+main p {
+  margin: 0;
 }
 
 .movie {
   margin-bottom: 20px;
+  min-width: 236px;
+  height: 370px;
 }
 .movie img {
   height: 236px;
 }
-.movie p {
-  margin: 0;
+
+.dates-box {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.dates-list li {
+  display: inline-block;
+  padding: 7px;
+}
+
+.chosen-date {
+  font-size: 2em;
+  text-align: center;
+}
+
+.movie-schedule {
+  padding-top: 40px;
+  border-bottom: solid 2px #ddd;
+}
+.movie-schedule img {
+  display: block;
+  height: 150px;
+}
+.movie-schedule .cinema-name {
+  margin-top: 20px;
+}
+
+.showtime-box {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.showtime-box .showtime {
+  margin: 3px;
 }

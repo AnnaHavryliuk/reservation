@@ -3,16 +3,16 @@ angular.module('mainApp', ['ngRoute']);
 angular.module('mainApp')
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/',
-        {
+      .when('/', {
           controller: 'MainController',
           templateUrl: 'src/templates/main.html'
-        }
-      )
-      .when('/showtimes',
-      {
+      })
+      .when('/showtimes', {
         controller: 'ShowtimesController',
         templateUrl: 'src/templates/showtimes.html'
-      }
-      );
+      })
+      .when('/showtimes', {
+        controller: 'ShowtimesController',
+        templateUrl: 'src/templates/showtimes.html'
+      });
   }]);

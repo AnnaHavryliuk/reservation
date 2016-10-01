@@ -27,8 +27,9 @@
         </ul>
       </div>
     </nav>
-    <section ng-view></section>
-
+    <main>
+      <div class="container" ng-view></div>
+    </main>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -40,6 +41,7 @@
     <script src="src/js/main.js"></script>
     <script src="src/js/factories/movies-factory.js"></script>
     <script src="src/js/factories/cinemas-factory.js"></script>
+    <script src="src/js/factories/dates-factory.js"></script>
     <script src="src/js/controllers/main-cntrl.js"></script>
     <script src="src/js/controllers/showtimes-cntrl.js"></script>
   </body>

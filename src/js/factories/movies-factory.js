@@ -64,13 +64,13 @@ angular.module('mainApp')
       }
     ];
 
-    factory.getMovies = () => {
+    factory.getMovies = function () {
       return movies;
     }
 
     factory.getProductById = function (id) {
       let movie;
-      movies.some(function(movieItem) {
+      movies.some(function (movieItem) {
         let result = false;
         if (movieItem.id == id) {
           result = true;

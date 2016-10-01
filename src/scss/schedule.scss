@@ -1,0 +1,32 @@
+.dates-box {
+  margin: 40px 0;
+  text-align: center;
+}
+.dates-list {
+  li {
+    display: inline-block;
+    padding: 7px;
+  }
+}
+.chosen-date {
+  font-size: 2em;
+  text-align: center;
+}
+.movie-schedule {
+  padding-top: 40px;
+  border-bottom: solid 2px #ddd;
+  img {
+    display: block;
+    @include img-height(150px);
+  }
+  .cinema-name {
+    margin-top: 20px;
+  }
+}
+.showtime-box {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  .showtime {
+    margin: 3px;
+  }
+}
