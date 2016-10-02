@@ -1,6 +1,6 @@
 <div class="row">
   <header><h2>Зараз у прокаті у Львові</h2></header>
-  <div class="col sm12 md12 l6" ng-repeat="movie in movies">
+  <div class="col sm12 md12 l6" ng-repeat="movie in vm.movies">
   <div class="movie">
     <img ng-src="{{movie.imgUrl}}" alt="{{movie.originName}}">
       <p><span class="movie-name" ng-bind="movie.name"></span></p>
