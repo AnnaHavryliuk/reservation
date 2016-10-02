@@ -1,4 +1,4 @@
-angular.module('mainApp', ['ngRoute', 'angular-repeat-n']);
+angular.module('mainApp', ['ngRoute']);
 
 angular.module('mainApp')
   .config(['$routeProvider', function ($routeProvider) {
