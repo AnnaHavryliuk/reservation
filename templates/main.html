@@ -1,0 +1,15 @@
+<div class="row">
+  <header><h2>Зараз у прокаті у Львові</h2></header>
+  <div class="col sm12 md12 l6" ng-repeat="movie in movies">
+  <div class="movie">
+    <img ng-src="{{movie.imgUrl}}" alt="{{movie.originName}}">
+      <p><span class="movie-name" ng-bind="movie.name"></span></p>
+      <p><span ng-bind="movie.originName"></span></p>
+      <p><span ng-bind="movie.genre"></span></p>
+      <p><span ng-bind="movie.year"></span> рік</p>
+      <p>Тривалість: <span ng-bind="movie.time"></span></p>
+      <p>Режисер: <span ng-bind="movie.directedBy"></span></p>
+      <p class="movie-desc"><span ng-bind="movie.description"></span></p>
+    </div>
+  </div>
+</div>

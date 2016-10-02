@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="src/css/libs.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="src/css/main.min.css">
+  </head>
+  <body ng-app="mainApp">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="#/">Головна</a></li>
+          <li><a href="#/showtimes">Розклад</a></li>
+          <li><a href="#/cinemas">Кінотеатри</a></li>
+        </ul>
+        <ul id="mobile-nav" class="side-nav">
+          <li><a href="#/">Головна</a></li>
+          <li><a href="#/showtimes">Розклад</a></li>
+          <li><a href="#/cinemas">Кінотеатри</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <div class="carousel">
+    <span class="carousel-item" ><img src="src/img/deepwater.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/seven.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/storks.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/drax.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/leader.jpg"></span>
+  </div>
+
+    <main>
+      <div class="container" ng-view></div>
+    </main>
+
+    <script src="src/js/libs.min.js"></script>
+    <script src="src/js/main.min.js"></script>
+  </body>
+</html>
