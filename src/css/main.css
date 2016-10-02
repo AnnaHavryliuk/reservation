@@ -1,96 +1,124 @@
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 h2 {
-  font-size: 2.8em; }
+  font-size: 2.8em;
+}
 
 main {
-  margin-left: 5px; }
-  main p {
-    margin: 0; }
+  margin-left: 5px;
+}
+main p {
+  margin: 0;
+}
 
 .movie {
   max-width: 450px;
   margin-top: 45px;
-  margin-right: 20px; }
-  .movie .movie-name {
-    font-size: 1.5em;
-    color: #26a69a; }
-  .movie .movie-desc {
-    margin-top: 8px; }
-  .movie img {
-    height: 236px; }
+  margin-right: 20px;
+}
+.movie .movie-name {
+  font-size: 1.5em;
+  color: #26a69a;
+}
+.movie .movie-desc {
+  margin-top: 8px;
+}
+.movie img {
+  height: 236px;
+}
 
 .dates-box {
   margin: 40px 0;
-  text-align: center; }
+  text-align: center;
+}
 
 .dates-list li {
   display: inline-block;
-  padding: 7px; }
+  padding: 7px;
+}
 
 .chosen-date {
   font-size: 1.9em;
-  text-align: center; }
+  text-align: center;
+}
 
 .movie-schedule {
   padding-top: 40px;
-  border-bottom: solid 2px #ddd; }
-  .movie-schedule img {
-    display: block;
-    height: 150px; }
-  .movie-schedule .cinema-name {
-    margin-top: 20px; }
+  border-bottom: solid 2px #ddd;
+}
+.movie-schedule img {
+  display: block;
+  height: 150px;
+}
+.movie-schedule .cinema-name {
+  margin-top: 20px;
+}
 
 .showtime-box {
   margin-top: 5px;
-  margin-bottom: 15px; }
-  .showtime-box .showtime {
-    margin: 3px; }
+  margin-bottom: 15px;
+}
+.showtime-box .showtime {
+  margin: 3px;
+}
 
 .places-box {
   width: 320px;
-  margin: 10px 0; }
-  .places-box .places {
-    display: inline-block;
-    margin: 3px;
-    width: 15px;
-    height: 25px;
-    border: solid 1px #2196f3;
-    border-radius: 3px;
-    color: #fff;
-    text-align: center;
-    font-size: 0.7em; }
-  .places-box .chosen-place {
-    background-color: #2196f3; }
+  margin: 10px 0;
+}
+.places-box .places {
+  display: inline-block;
+  margin: 3px;
+  width: 15px;
+  height: 25px;
+  border: solid 1px #2196f3;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.7em;
+}
+.places-box .chosen-place {
+  background-color: #2196f3;
+}
 
 .info-box .chosen-cinema, .info-box .watch-type {
-  font-size: 1.3em; }
-
+  font-size: 1.3em;
+}
 .info-box .margin-left {
-  margin-left: 8px; }
+  margin-left: 8px;
+}
 
 .chosen-list {
-  margin: 10px 0; }
-  .chosen-list .chosen-item {
-    margin: 5px;
-    font-size: 1.5em;
-    color: #fff;
-    background-color: #2196f3; }
+  margin: 10px 0;
+}
+.chosen-list .chosen-item {
+  margin: 5px;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #2196f3;
+}
 
 .money {
   font-size: 1.5em;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .margin-all {
-  margin: 20px; }
+  margin: 20px;
+}
 
 .cinema {
-  margin-bottom: 40px; }
-  .cinema .cinema-call {
-    font-size: 1.5em;
-    color: #26a69a; }
-  .cinema img {
-    width: 400px; }
-  .cinema p {
-    margin: 20px 0; }
+  margin-bottom: 40px;
+}
+.cinema .cinema-call {
+  font-size: 1.5em;
+  color: #26a69a;
+}
+.cinema img {
+  width: 400px;
+}
+.cinema p {
+  margin: 20px 0;
+}
