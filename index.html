@@ -27,12 +27,22 @@
         </ul>
       </div>
     </nav>
+
+  <div class="carousel">
+    <span class="carousel-item" ><img src="src/img/deepwater.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/seven.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/storks.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/drax.jpg"></span>
+    <span class="carousel-item" ><img src="src/img/leader.jpg"></span>
+  </div>
+
     <main>
       <div class="container" ng-view></div>
     </main>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-repeat-n/dist/angular-repeat-n.min.js"></script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
@@ -44,5 +54,6 @@
     <script src="src/js/factories/dates-factory.js"></script>
     <script src="src/js/controllers/main-cntrl.js"></script>
     <script src="src/js/controllers/showtimes-cntrl.js"></script>
+    <script src="src/js/controllers/booking-cntrl.js"></script>
   </body>
 </html>

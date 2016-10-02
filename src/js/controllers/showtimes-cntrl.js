@@ -9,4 +9,24 @@ angular.module('mainApp').controller('ShowtimesController', ['$scope', 'datesFac
 
     $scope.movies = moviesFactory.getMovies();
     $scope.cinemas = cinemasFactory.getCinemas();
+
+    // $scope.saveInfoToBooking = function (cinema, movieName, watchType, showtime) {
+    //   bookingFactory.setBooking(cinema, movieName, $scope.chosenDate, watchType, showtime);
+    // }
   }]);
+  // angular.module('mainApp').factory('bookingFactory', function() {
+  //   let factory = {};
+  //   let booking = {cinema: [], movieName:};
+
+  //   factory.getBooking = function () {
+  //     return booking;
+  //   }
+  //   factory.setBooking = function (cinema, movieName, chosenDate, watchType, showtime) {
+  //     booking.cinema = cinema;
+  //     booking.movieName = movieName;
+  //     booking.date = chosenDate;
+  //     booking.watchType = watchType;
+  //     booking.showtime = showtime;
+  //   }
+  //   return factory;
+  // });

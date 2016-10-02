@@ -5,5 +5,6 @@
       edge: 'left',
       closeOnClick: true
     });
+    $('.carousel').carousel();
   });
 })(jQuery);

@@ -68,7 +68,7 @@ angular.module('mainApp')
       return movies;
     }
 
-    factory.getProductById = function (id) {
+    factory.getMovieById = function (id) {
       let movie;
       movies.some(function (movieItem) {
         let result = false;

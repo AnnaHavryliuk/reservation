@@ -9,19 +9,25 @@
     </li>
   </ul>
 </div>
+
 <p class="chosen-date">{{chosenDate.day}}, {{chosenDate.month}}</p>
+
 <div class="movie-schedule" ng-repeat="movie in movies">
   <img ng-src="{{movie.imgUrl}}" alt="{{movie.originName}}">
+
   <a ng-href="#/" ng-bind="movie.name"></a>
+
   <div class="row">
     <div class="col l6 m12" ng-repeat="cinema in cinemas">
       <p class="cinema-name" ng-bind="cinema.name"></p>
+
       <div ng-repeat="watchType in cinema.getMovieWatchTypes(movie.id)">
         <p ng-bind="watchType.type"></p>
+
         <div class="showtime-box">
-        <a class="btn waves-effect waves-light showtime" href="#/booking" ng-repeat="showtime in watchType.showtimes" ng-bind="showtime.time"></a>
+          <a class="btn waves-effect waves-light showtime" ng-href="#/booking/{{cinema.id}}/{{movie.id}}/{{watchType.type}}/{{showtime.time}}/{{chosenDate.day}}/{{chosenDate.month}}" ng-repeat="showtime in watchType.showtimes" ng-bind="showtime.time"></a>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>

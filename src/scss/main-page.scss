@@ -1,7 +1,14 @@
 .movie {
-  margin-bottom: 20px;
-  min-width: 236px;
-  height: 370px;
+  max-width: 450px;
+    margin-top: 45px;
+  margin-right: 20px;
+  .movie-name {
+    font-size: 1.5em;
+    color: #26a69a;
+  }
+  .movie-desc {
+    margin-top: 8px;
+  }
   img {
     @include img-height(236px);
   }

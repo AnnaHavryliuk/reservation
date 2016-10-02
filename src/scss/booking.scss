@@ -1,0 +1,42 @@
+.places-box {
+  width: 320px;
+  margin: 10px 0;
+  .places {
+    display: inline-block;
+    margin: 3px;
+    width: 15px;
+    height: 25px;
+    border: solid 1px #2196f3;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    font-size: 0.7em;
+  }
+  .chosen-place {
+    background-color: #2196f3;
+  }
+}
+.info-box {
+  .chosen-cinema, .watch-type {
+    font-size: 1.3em;
+  }
+  .margin-left {
+    margin-left: 8px;
+  }
+}
+.chosen-list {
+  margin: 10px 0;
+  .chosen-item {
+    margin: 5px;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #2196f3;
+  }
+}
+.money {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.margin-all {
+  margin: 20px;
+}

@@ -3,9 +3,14 @@ angular.module('mainApp')
     let factory = {};
 
     class Showtime {
-      constructor(time = '') {
+      constructor(time = '', isBooked = []) {
         this.time = time;
-        this.isBooked = false;
+
+        if (Array.isArray(isBooked)) {
+          this.isBooked = isBooked;
+        } else {
+          this.isBooked = [];
+        }
       }
     }
 
@@ -33,10 +38,14 @@ angular.module('mainApp')
     }
 
     class Cinema {
-      constructor(name = '', address = '', moviesInit = [], description = '') {
+      constructor(id = 0, name = '', address = '', moviesInit = [], workTime = '', description = '', size = {rows: 0, places: 0}, url = '') {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.description = description;
+        this.hallSize = size;
+        this.workTime = workTime;
+        this.imgUrl = url;
 
         if (Array.isArray(moviesInit)) {
           this.moviesShowtime = moviesInit;
@@ -59,7 +68,13 @@ angular.module('mainApp')
     const planetMoviesData = [
       new MovieSchedule(1, [
         new WatchType('2d', [
-          new Showtime('10:15'),
+          new Showtime('10:15', [
+            {day: '04', places: [
+                {row: 1, place: 1},
+                {row: 1, place: 2}
+              ]
+            }
+          ]),
           new Showtime('15:20'),
           new Showtime('16:35'),
           new Showtime('20:10'),
@@ -128,20 +143,41 @@ angular.module('mainApp')
     ];
 
     let cinemas = [
-      new Cinema('Планета Кіно 4DX',
+      new Cinema(1,
+        'Планета Кіно 4DX',
         'м. Львів, вул. Під Дубом, 7А, ТРЦ \"Forum Lviv\"',
         planetMoviesData,
-        'У самому центрі Львова у 900 метрах від Оперного театру ми відкрили надсучасний кінотеатр Планета Кіно. Він знаходиться у ТРЦ \"Forum Lviv\" на вул. Під Дубом, 7А, на третьому поверсі та має кінозал з технологією 4DX та ще 5 залів покращеного комфорту. Тут класне все: дизайн, технології, розташування, обслуговування, Кіномаркет.'
+        'З 10:00 Каси і Кіномаркет — до початку останнього сеансу Гардероб — до 22:00',
+        'У самому центрі Львова у 900 метрах від Оперного театру ми відкрили надсучасний кінотеатр Планета Кіно. Він знаходиться у ТРЦ \"Forum Lviv\" на вул. Під Дубом, 7А, на третьому поверсі та має кінозал з технологією 4DX та ще 5 залів покращеного комфорту. Тут класне все: дизайн, технології, розташування, обслуговування, Кіномаркет.',
+        {rows: 10, places: 15},
+        'src/img/lviv-forum.jpg'
       ),
-      new Cinema('Кінопалац ім. Довженка',
+      new Cinema(2,
+        'Кінопалац ім. Довженка',
         'м. Львів, просп. Червоної Калини, 81',
         palaceMoviesData,
-        'Синій (новий, комфортний) зал на 196, обладнаний звуковою системою DOLBY DIGITAL SURROUND, акустикою «JBL», панорамним сучасним екраном Perlux.'
+        'З 10:00 Каси і Кіномаркет — до початку останнього сеансу Гардероб — до 22:00',
+        'Синій (новий, комфортний) зал на 196, обладнаний звуковою системою DOLBY DIGITAL SURROUND, акустикою «JBL», панорамним сучасним екраном Perlux.',
+        {rows: 10, places: 15},
+        'src/img/kinopalace_dovzhenka.jpg'
       )
     ];
 
     factory.getCinemas = function () {
       return cinemas;
+    }
+
+    factory.getCinemaById = function (id) {
+      let cinema;
+      cinemas.some(function (cinemaItem) {
+        let result = false;
+        if (cinemaItem.id == id) {
+          result = true;
+          cinema = cinemaItem;
+        }
+        return result;
+      });
+      return cinema;
     }
 
     return factory;

@@ -2,6 +2,10 @@ body {
   font-size: 16px;
 }
 
+h2 {
+  font-size: 2.8em;
+}
+
 main {
   margin-left: 5px;
 }
@@ -10,9 +14,16 @@ main p {
 }
 
 .movie {
-  margin-bottom: 20px;
-  min-width: 236px;
-  height: 370px;
+  max-width: 450px;
+  margin-top: 45px;
+  margin-right: 20px;
+}
+.movie .movie-name {
+  font-size: 1.5em;
+  color: #26a69a;
+}
+.movie .movie-desc {
+  margin-top: 8px;
 }
 .movie img {
   height: 236px;
@@ -29,7 +40,7 @@ main p {
 }
 
 .chosen-date {
-  font-size: 2em;
+  font-size: 1.9em;
   text-align: center;
 }
 
@@ -51,4 +62,63 @@ main p {
 }
 .showtime-box .showtime {
   margin: 3px;
+}
+
+.places-box {
+  width: 320px;
+  margin: 10px 0;
+}
+.places-box .places {
+  display: inline-block;
+  margin: 3px;
+  width: 15px;
+  height: 25px;
+  border: solid 1px #2196f3;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.7em;
+}
+.places-box .chosen-place {
+  background-color: #2196f3;
+}
+
+.info-box .chosen-cinema, .info-box .watch-type {
+  font-size: 1.3em;
+}
+.info-box .margin-left {
+  margin-left: 8px;
+}
+
+.chosen-list {
+  margin: 10px 0;
+}
+.chosen-list .chosen-item {
+  margin: 5px;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #2196f3;
+}
+
+.money {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.margin-all {
+  margin: 20px;
+}
+
+.cinema {
+  margin-bottom: 40px;
+}
+.cinema .cinema-call {
+  font-size: 1.5em;
+  color: #26a69a;
+}
+.cinema img {
+  width: 400px;
+}
+.cinema p {
+  margin: 20px 0;
 }

@@ -1,4 +1,4 @@
-angular.module('mainApp', ['ngRoute']);
+angular.module('mainApp', ['ngRoute', 'angular-repeat-n']);
 
 angular.module('mainApp')
   .config(['$routeProvider', function ($routeProvider) {
@@ -11,8 +11,12 @@ angular.module('mainApp')
         controller: 'ShowtimesController',
         templateUrl: 'src/templates/showtimes.html'
       })
-      .when('/showtimes', {
-        controller: 'ShowtimesController',
-        templateUrl: 'src/templates/showtimes.html'
+      .when('/cinemas', {
+        controller: 'MainController',
+        templateUrl: 'src/templates/cinemas.html'
+      })
+      .when('/booking/:cinemaId/:movieId/:watchType/:time/:day/:month', {
+        controller: 'BookingController',
+        templateUrl: 'src/templates/booking.html'
       });
   }]);

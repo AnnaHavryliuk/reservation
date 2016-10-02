@@ -55,3 +55,9 @@ angular.module('mainApp')
 
     return factory;
    })
+
+  angular.module('mainApp').factory('bookingFactory', function() {
+    let factory = {};
+    factory.booking = {};
+    return factory;
+  });
