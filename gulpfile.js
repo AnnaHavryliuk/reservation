@@ -5,7 +5,10 @@ const gulp = require('gulp'),
   del = require('del'),
   runSequence = require('run-sequence'),
   useref = require('gulp-useref'),
-  babel = require('gulp-babel'),
+<<<<<<< HEAD
+=======
+  babel = require('gulp-babel');
+>>>>>>> 314803376e4b0256c797e8bad69bdac6e44064fa
 
 gulp.task('sass', function () {
   return gulp.src('src/scss/main.scss')
