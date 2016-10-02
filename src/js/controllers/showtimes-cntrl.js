@@ -1,4 +1,4 @@
-angular.module('mainApp').controller('ShowtimesController', function (datesFactory, moviesFactory, cinemasFactory) {
+const ShowtimesController = function (datesFactory, moviesFactory, cinemasFactory) {
   const vm = this;
   vm.dates = datesFactory.getActualDates();
   vm.getformatedDate = datesFactory.getformatedDate;
@@ -10,4 +10,8 @@ angular.module('mainApp').controller('ShowtimesController', function (datesFacto
 
   vm.movies = moviesFactory.getMovies();
   vm.cinemas = cinemasFactory.getCinemas();
-});
+};
+
+ShowtimesController.$inject = ['datesFactory', 'moviesFactory', 'cinemasFactory'];
+
+angular.module('mainApp').controller('ShowtimesController', ShowtimesController);
