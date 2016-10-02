@@ -5,7 +5,7 @@ const gulp = require('gulp'),
   del = require('del'),
   runSequence = require('run-sequence'),
   useref = require('gulp-useref'),
-  babel = require('gulp-babel'),
+  babel = require('gulp-babel');
 
 gulp.task('sass', function () {
   return gulp.src('src/scss/main.scss')
