@@ -5,8 +5,8 @@
   <div class="col l6 m12">
     <p>Оберіть місця: </p>
     <div class="places-box">
-      <div ng-repeat="row in createArray(cinema.hallSize.rows)">
-        <div class="places" ng-class="[classes[row - 1][place - 1], isDisabled(row, place)]" ng-click="bookPlace(row, place)" ng-repeat="place in createArray(cinema.hallSize.places)" ng-bind="place">
+      <div ng-repeat="row in vm.createArray(vm.cinema.hallSize.rows)">
+        <div class="places" ng-class="[vm.classes[row - 1][place - 1], vm.isDisabled(row, place)]" ng-click="vm.bookPlace(row, place)" ng-repeat="place in vm.createArray(vm.cinema.hallSize.places)" ng-bind="place">
         </div>
       </div>
     </div>
@@ -15,52 +15,52 @@
   <div class="col l6 m12">
     <div class="info-box">
       <p>
-        <span class="chosen-cinema margin-left" ng-bind="cinema.name"></span>,
-        <span class="watch-type margin-left" ng-bind="watchType"></span>
+        <span class="chosen-cinema margin-left" ng-bind="vm.cinema.name"></span>,
+        <span class="watch-type margin-left" ng-bind="vm.watchType"></span>
       </p>
 
       <p>
-        <span class="margin-left" ng-bind="day"></span>,
-        <span class="margin-left" ng-bind="month"></span>
-        <span class="margin-left" ng-bind="time"></span>
+        <span class="margin-left" ng-bind="vm.day"></span>,
+        <span class="margin-left" ng-bind="vm.month"></span>
+        <span class="margin-left" ng-bind="vm.time"></span>
       </p>
 
       <div class="chosen-list">
         <p>Обрані місця: </p>
-        <div class="chosen-item" ng-repeat="ticket in booked">
+        <div class="chosen-item" ng-repeat="ticket in vm.booked">
           <span>Ряд </span><span ng-bind="ticket.row"></span>, <span>Місце </span><span ng-bind="ticket.place"></span>
         </div>
       </div>
       
-      <p class="money">Потрібно сплатити: <span ng-bind="totalPrice"></span> грн.</p>
+      <p class="money">Потрібно сплатити: <span ng-bind="vm.totalPrice"></span> грн.</p>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <button class="waves-effect waves-light btn-large margin-all" ng-hide="!formHiden" ng-click="getForm()">Зарезервувати місця</button>
-    <form class="col s12" ng-hide="formHiden" name="bookingForm">
+  <button class="waves-effect waves-light btn-large margin-all" ng-hide="!vm.formHiden" ng-click="vm.getForm()">Зарезервувати місця</button>
+    <form class="col s12" ng-hide="vm.formHiden" name="bookingForm">
       <div class="row">
         <div class="input-field col s12">
-          <input id="name" type="text" required  name="name">
+          <input id="name" type="text" required>
           <label for="name">Ім'я</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email"  required name="email">
+          <input id="email" type="email"  required>
           <label for="email">Email</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="tel" type="tel" required  name="tel">
+          <input id="tel" type="tel" required>
           <label for="tel">Телефон</label>
         </div>
       </div>
 
-      <button class="waves-effect waves-light btn" ng-click="endBooking()">Відправити</button>
+      <button class="waves-effect waves-light btn" ng-click="vm.endBooking()">Відправити</button>
     </form>
 </div>

@@ -4,28 +4,28 @@
 </header>
 <div class="dates-box">
   <ul class="dates-list">
-    <li ng-repeat="date in dates">
-      <button class="waves-effect waves-light btn-floating blue btn-large" ng-click="chooseDate(date)" ng-bind="getformatedDate(date).day"></button>
+    <li ng-repeat="date in vm.dates">
+      <button class="waves-effect waves-light btn-floating blue btn-large" ng-click="vm.chooseDate(date)" ng-bind="vm.getformatedDate(date).day"></button>
     </li>
   </ul>
 </div>
 
-<p class="chosen-date">{{chosenDate.day}}, {{chosenDate.month}}</p>
+<p class="chosen-date">{{vm.chosenDate.day}}, {{vm.chosenDate.month}}</p>
 
-<div class="movie-schedule" ng-repeat="movie in movies">
+<div class="movie-schedule" ng-repeat="movie in vm.movies">
   <img ng-src="{{movie.imgUrl}}" alt="{{movie.originName}}">
 
   <a ng-href="#/" ng-bind="movie.name"></a>
 
   <div class="row">
-    <div class="col l6 m12" ng-repeat="cinema in cinemas">
+    <div class="col l6 m12" ng-repeat="cinema in vm.cinemas">
       <p class="cinema-name" ng-bind="cinema.name"></p>
 
       <div ng-repeat="watchType in cinema.getMovieWatchTypes(movie.id)">
         <p ng-bind="watchType.type"></p>
 
         <div class="showtime-box">
-          <a class="btn waves-effect waves-light showtime" ng-href="#/booking/{{cinema.id}}/{{movie.id}}/{{watchType.type}}/{{showtime.time}}/{{chosenDate.day}}/{{chosenDate.month}}" ng-repeat="showtime in watchType.showtimes" ng-bind="showtime.time"></a>
+          <a class="btn waves-effect waves-light showtime" ng-href="#/booking/{{cinema.id}}/{{movie.id}}/{{watchType.type}}/{{showtime.time}}/{{vm.chosenDate.day}}/{{vm.chosenDate.month}}" ng-repeat="showtime in watchType.showtimes" ng-bind="showtime.time"></a>
         </div>
       </div>
     </div>

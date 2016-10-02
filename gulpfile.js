@@ -3,11 +3,9 @@ const gulp = require('gulp'),
   cleanCSS = require('gulp-clean-css'),
   uglify = require('gulp-uglify'),
   del = require('del'),
-  gulpif = require('gulp-if'),
   runSequence = require('run-sequence'),
   useref = require('gulp-useref'),
   babel = require('gulp-babel'),
-  deploy = require('gulp-gh-pages');
 
 gulp.task('sass', function () {
   return gulp.src('src/scss/main.scss')
@@ -42,11 +40,6 @@ gulp.task('clean:dist', function() {
 
 gulp.task('watch', function () {
   gulp.watch('src/scss/**/*.scss', ['sass']);
-});
-
-gulp.task('deploy', function () {
-  return gulp.src('dist/**/*')
-      .pipe(deploy());
 });
 
 gulp.task('build', function (callback) {

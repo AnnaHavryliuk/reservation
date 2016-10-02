@@ -1,6 +1,6 @@
 <div class="row">
   <header><h2>Кінотеатри</h2></header>
-  <div class="col l12 cinema" ng-repeat="cinema in cinemas">
+  <div class="col l12 cinema" ng-repeat="cinema in vm.cinemas">
     <p class="cinema-call" ng-bind="cinema.name"></p>
 
     <img ng-src="{{cinema.imgUrl}}" alt="cinema">

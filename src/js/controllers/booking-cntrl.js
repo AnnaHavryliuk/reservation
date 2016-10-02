@@ -1,58 +1,59 @@
-angular.module('mainApp').controller('BookingController', ['$scope', '$routeParams', '$location', 'moviesFactory', 'cinemasFactory', function ($scope, $routeParams, $location, moviesFactory, cinemasFactory) {
-   $scope.cinema = cinemasFactory.getCinemaById($routeParams.cinemaId);
-   const movieId = $routeParams.movieId;
-   $scope.movieName = moviesFactory.getMovieById(movieId).name;
-   $scope.watchType = $routeParams.watchType;
-   $scope.time = $routeParams.time;
-   $scope.day = $routeParams.day;
-   $scope.month = $routeParams.month;
+const BookingController = function ($routeParams, $location, moviesFactory, cinemasFactory) {
+  const vm = this;
+  vm.cinema = cinemasFactory.getCinemaById($routeParams.cinemaId);
+  const movieId = $routeParams.movieId;
+  vm.movieName = moviesFactory.getMovieById(movieId).name;
+  vm.watchType = $routeParams.watchType;
+  vm.time = $routeParams.time;
+  vm.day = $routeParams.day;
+  vm.month = $routeParams.month;
 
-   $scope.cinema.getMovieWatchTypes(movieId).some(function (watchTypeItem) {
-      let result = false;
-      if (watchTypeItem.type === $scope.watchType) {
-        result = true;
-        watchTypeItem.showtimes.some(function (showtimeItem) {
-          let result = false;
-          if (showtimeItem.time === $scope.time) {
-            result = true;
-            $scope.showtime = showtimeItem;
-          }
-          return result;
-        });
-      }
-      return result;
-   });
-
-   $scope.isDisabled = function (row, place) {
-      let mainResult = '';
-
-      if ($scope.showtime.isBooked) {
-        $scope.showtime.isBooked.some(function (item) {
-            item.places.some(function (placeItem) {
-              if (placeItem.row == row && placeItem.place == place) {
-                mainResult = 'disabled btn-floating';
-              }
-              return mainResult;
-            })
-            return mainResult;
-        });
-      }
-      return mainResult;
+  vm.cinema.getMovieWatchTypes(movieId).some(function (watchTypeItem) {
+    let result = false;
+    if (watchTypeItem.type === vm.watchType) {
+      result = true;
+      watchTypeItem.showtimes.some(function (showtimeItem) {
+        let result = false;
+        if (showtimeItem.time === vm.time) {
+          result = true;
+          vm.showtime = showtimeItem;
+        }
+        return result;
+      });
     }
+    return result;
+  });
 
-   $scope.createArray = function (num) {
+  vm.isDisabled = function (row, place) {
+    let mainResult = '';
+
+    if (vm.showtime.isBooked) {
+      vm.showtime.isBooked.some(function (item) {
+        item.places.some(function (placeItem) {
+          if (placeItem.row == row && placeItem.place == place) {
+            mainResult = 'disabled btn-floating';
+          }
+          return mainResult;
+        });
+        return mainResult;
+      });
+    }
+    return mainResult;
+  };
+
+  vm.createArray = function (num) {
     let array = [];
-    for(let i = 1; i <= num; i++) {
+    for (let i = 1; i <= num; i++) {
       array.push(i);
     }
     return array;
-  }
+  };
 
-  function matrixArray(rows,columns) {
-    let arr = new Array();
+  function matrixArray(rows, columns) {
+    let arr = [];
 
-    for(let i = 0; i < rows; i++) {
-    arr[i] = new Array();
+    for (let i = 0; i < rows; i++) {
+      arr[i] = [];
 
       for (let j = 0; j < columns; j++) {
         arr[i][j] = null;
@@ -61,14 +62,14 @@ angular.module('mainApp').controller('BookingController', ['$scope', '$routePara
     return arr;
   }
 
-  $scope.classes = matrixArray($scope.cinema.hallSize.rows, $scope.cinema.hallSize.places);
-  $scope.price = 80;
-  $scope.totalPrice = 0;
-  $scope.booked = [];
+  vm.classes = matrixArray(vm.cinema.hallSize.rows, vm.cinema.hallSize.places);
+  vm.price = 80;
+  vm.totalPrice = 0;
+  vm.booked = [];
 
   const chosenPlaceManipulate = function (chosenRow, chosenPlace) {
     let indexBooked;
-    const isntBooked = $scope.booked.every(function(item, index) {
+    const isntBooked = vm.booked.every(function(item, index) {
       const result = item.row !== chosenRow || item.place !== chosenPlace;
       if (!result) {
         indexBooked = index;
@@ -77,40 +78,45 @@ angular.module('mainApp').controller('BookingController', ['$scope', '$routePara
     });
     if (isntBooked) {
       const place = {row: chosenRow, place: chosenPlace};
-      $scope.booked.push(place);
-      $scope.totalPrice += $scope.price;
+      vm.booked.push(place);
+      vm.totalPrice += vm.price;
     } else {
-      $scope.booked.splice(indexBooked, 1);
-      $scope.totalPrice -= $scope.price;
+      vm.booked.splice(indexBooked, 1);
+      vm.totalPrice -= vm.price;
     }
-  }
+  };
 
   const chosenPlaceClassManipulate = function (chosenRow, chosenPlace) {
-    let item = $scope.classes[chosenRow - 1][chosenPlace - 1];
+    let item = vm.classes[chosenRow - 1][chosenPlace - 1];
     if (item) {
-      $scope.classes[chosenRow - 1][chosenPlace - 1] = null;
+      vm.classes[chosenRow - 1][chosenPlace - 1] = null;
     } else {
-      $scope.classes[chosenRow - 1][chosenPlace - 1] = 'chosen-place';
+      vm.classes[chosenRow - 1][chosenPlace - 1] = 'chosen-place';
     }
-  }
-  $scope.bookPlace = function (chosenRow, chosenPlace) {
+  };
+
+  vm.bookPlace = function (chosenRow, chosenPlace) {
     chosenPlaceClassManipulate(chosenRow, chosenPlace);
     chosenPlaceManipulate(chosenRow, chosenPlace);
-  }
+  };
 
-  $scope.formHiden = true;
+  vm.formHiden = true;
 
-  $scope.getForm = function () {
-    if ($scope.booked.length) {
-      $scope.formHiden = false;
+  vm.getForm = function () {
+    if (vm.booked.length) {
+      vm.formHiden = false;
     }
-  }
+  };
 
-  $scope.endBooking = function () {
-    if ($scope.booked.length) {
-      $scope.showtime.isBooked.push({day: $scope.day, places: $scope.booked})
-      $scope.formHiden = true;
+  vm.endBooking = function () {
+    if (vm.booked.length) {
+      vm.showtime.isBooked.push({day: vm.day, places: vm.booked});
+      vm.formHiden = true;
       $location.path('/');
     }
-  }
-}]);
+  };
+};
+
+BookingController.$inject = ['$routeParams', '$location', 'moviesFactory', 'cinemasFactory'];
+
+angular.module('mainApp').controller('BookingController', BookingController);
