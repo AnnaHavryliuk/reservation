@@ -44,12 +44,10 @@ angular.module('mainApp').factory('datesFactory', function () {
       day = '0' + day;
     }
 
-    const dayString = `${day} ${dayName}`;
-
     const monthesNames = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
     const monthString = monthesNames[date.getMonth()];
 
-    return {day: dayString, month: monthString};
+    return {day: day, dayName: dayName, month: monthString};
   };
 
   return factory;

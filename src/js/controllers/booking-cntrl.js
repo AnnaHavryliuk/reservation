@@ -5,8 +5,11 @@ const BookingController = function ($routeParams, $location, moviesFactory, cine
   vm.movieName = moviesFactory.getMovieById(movieId).name;
   vm.watchType = $routeParams.watchType;
   vm.time = $routeParams.time;
-  vm.day = $routeParams.day;
-  vm.month = $routeParams.month;
+  vm.date = {
+    day: $routeParams.day,
+    dayName: $routeParams.dayName,
+    month: $routeParams.month
+  };
 
   vm.cinema.getMovieWatchTypes(movieId).some(function (watchTypeItem) {
     let result = false;
@@ -24,17 +27,20 @@ const BookingController = function ($routeParams, $location, moviesFactory, cine
     return result;
   });
 
-  vm.isDisabled = function (row, place) {
-    let mainResult = '';
+  vm.isDisable = function (row, place) {
+    let mainResult = false;
 
-    if (vm.showtime.isBooked) {
+    if (vm.showtime.isBooked.length) {
       vm.showtime.isBooked.some(function (item) {
-        item.places.some(function (placeItem) {
-          if (placeItem.row == row && placeItem.place == place) {
-            mainResult = 'disabled btn-floating';
-          }
-          return mainResult;
-        });
+        if (item.day === vm.date.day) {
+          item.places.some(function (placeItem) {
+            if (placeItem.row == row && placeItem.place == place) {
+              mainResult = 'disabled btn-floating';
+            } else {
+            }
+            return mainResult;
+          });
+        }
         return mainResult;
       });
     }
@@ -49,20 +55,6 @@ const BookingController = function ($routeParams, $location, moviesFactory, cine
     return array;
   };
 
-  function matrixArray(rows, columns) {
-    let arr = [];
-
-    for (let i = 0; i < rows; i++) {
-      arr[i] = [];
-
-      for (let j = 0; j < columns; j++) {
-        arr[i][j] = null;
-      }
-    }
-    return arr;
-  }
-
-  vm.classes = matrixArray(vm.cinema.hallSize.rows, vm.cinema.hallSize.places);
   vm.price = 80;
   vm.totalPrice = 0;
   vm.booked = [];
@@ -76,6 +68,7 @@ const BookingController = function ($routeParams, $location, moviesFactory, cine
       }
       return result;
     });
+
     if (isntBooked) {
       const place = {row: chosenRow, place: chosenPlace};
       vm.booked.push(place);
@@ -86,18 +79,12 @@ const BookingController = function ($routeParams, $location, moviesFactory, cine
     }
   };
 
-  const chosenPlaceClassManipulate = function (chosenRow, chosenPlace) {
-    let item = vm.classes[chosenRow - 1][chosenPlace - 1];
-    if (item) {
-      vm.classes[chosenRow - 1][chosenPlace - 1] = null;
-    } else {
-      vm.classes[chosenRow - 1][chosenPlace - 1] = 'chosen-place';
+  vm.bookPlace = function (event, chosenRow, chosenPlace) {
+    const elem = angular.element(event.target);
+    elem.toggleClass('chosen-place');
+    if (!elem.hasClass('disabled')) {
+      chosenPlaceManipulate(chosenRow, chosenPlace);
     }
-  };
-
-  vm.bookPlace = function (chosenRow, chosenPlace) {
-    chosenPlaceClassManipulate(chosenRow, chosenPlace);
-    chosenPlaceManipulate(chosenRow, chosenPlace);
   };
 
   vm.formHiden = true;

@@ -17,7 +17,7 @@ const SetRoutesConfig = function ($routeProvider) {
       controllerAs: 'vm',
       templateUrl: 'src/templates/cinemas.html'
     })
-    .when('/booking/:cinemaId/:movieId/:watchType/:time/:day/:month', {
+    .when('/booking/:cinemaId/:movieId/:watchType/:time/:day/:dayName/:month', {
       controller: 'BookingController',
       controllerAs: 'vm',
       templateUrl: 'src/templates/booking.html'
