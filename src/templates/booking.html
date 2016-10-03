@@ -6,7 +6,7 @@
     <p>Оберіть місця: </p>
     <div class="places-box">
       <div ng-repeat="row in vm.createArray(vm.cinema.hallSize.rows)">
-        <div class="places" ng-class="[vm.classes[row - 1][place - 1], vm.isDisabled(row, place)]" ng-click="vm.bookPlace(row, place)" ng-repeat="place in vm.createArray(vm.cinema.hallSize.places)" ng-bind="place">
+        <div class="places" ng-class="vm.isDisable(row, place)" ng-click="vm.bookPlace($event, row, place)" ng-repeat="place in vm.createArray(vm.cinema.hallSize.places)" ng-bind="place">
         </div>
       </div>
     </div>
@@ -20,8 +20,8 @@
       </p>
 
       <p>
-        <span class="margin-left" ng-bind="vm.day"></span>,
-        <span class="margin-left" ng-bind="vm.month"></span>
+        <span class="margin-left" ng-bind="vm.date.day + ' ' + vm.date.dayName"></span>,
+        <span class="margin-left" ng-bind="vm.date.month"></span>
         <span class="margin-left" ng-bind="vm.time"></span>
       </p>
 
